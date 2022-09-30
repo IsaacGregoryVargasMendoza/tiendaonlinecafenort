@@ -14,8 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('producto.catalogo');
 });
+
+Route::resource('catalogo','App\Http\Controllers\ProductoController');
 
 Route::middleware([
     'auth:sanctum',

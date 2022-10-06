@@ -14,10 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('producto.catalogo');
+    return view('layouts/plantillabase');
 });
 
 Route::resource('catalogo','App\Http\Controllers\ProductoController');
+Route::resource('cliente','App\Http\Controllers\ClienteController');
+Route::resource('tipoProducto','App\Http\Controllers\TipoProductoController');
+Route::resource('venta','App\Http\Controllers\VentaController');
+Route::resource('listaproductos','App\Http\Controllers\ListaController');
 
 Route::middleware([
     'auth:sanctum',

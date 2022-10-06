@@ -8,13 +8,14 @@
         @yield('title')
     </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="css/estilos.css" rel="stylesheet">
+    <link href="/css/estilos.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/imagenes/naranja.png">
 </head>
 <body>
     <header>
-    <div class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-        <a href="#" class="navbar-brand">
+        <a href="/" class="navbar-brand">
             <strong>Tienda Cafenort</strong>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,7 +24,7 @@
         <div class="collapse navbar-collapse" id="navbarHeader">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a href="#" class="nav-link active">Catalogo</a>
+                    <a href=" {{ route('catalogo.index')}}" class="nav-link">Catalogo</a>
                 </li>
 
                 <li class="nav-item">
@@ -31,7 +32,11 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Contacto</a>
+                    <a href="{{ route('listaproductos.index')}}" class="nav-link">Listado</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('catalogo.create')}}" class="nav-link">Mantenimiento</a>
                 </li>
             </ul>
             <ul class="navbar-nav mb-2 mb-lg-0">
@@ -46,7 +51,7 @@
     </header>
     
     <main>
-        <div class="container">
+        <div class="container mt-5">
             @yield('container')
         </div>
     </main>

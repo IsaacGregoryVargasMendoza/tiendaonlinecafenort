@@ -11,10 +11,12 @@ class CreateProductosTable extends Migration
         Schema::create('productos', function (Blueprint $table) {
             $table->id();
             $table->string('nombreProducto',100);
+            $table->text('descripcionProducto');
             $table->double('stockProducto',9,2);
             $table->double('precioProducto',9,2);
             $table->string('unidadMedida',100);
             $table->string('imagenProducto');
+            $table->double('descuentoProducto');
             $table->boolean('visibleProducto');
             $table->boolean('estadoProducto');
             $table->foreignid('idTipoProducto')

@@ -6,23 +6,57 @@ use Illuminate\Http\Request;
 use App\Models\Producto;
 use App\Models\TipoProducto;
 
-class ProductoController extends Controller
+class ListaController extends Controller
 {
     public function index()
     {
         $productos = Producto::where('estadoProducto',1)->get();
-        return view('producto.catalogo',compact('productos'));
+        return view('producto.listar',compact('productos'));
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
-        $tipoproductos = TipoProducto::where('estadoTipoProducto',1)->get();
-        return view('producto.crear',compact('tipoproductos'));
+        //
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
-        $producto = new Producto();
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    public function edit($id)
+    {
+        $producto = Producto::find($id);
+        $tipoproductos = TipoProducto::where('estadoTipoProducto',1)->get();
+
+        return view('producto.editar',compact('producto'))->with('tipoproductos',$tipoproductos);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $producto = Producto::find($id);
 
         if($request->hasfile('imagenproducto')){
             $file = $request->file('imagenproducto');
@@ -43,24 +77,7 @@ class ProductoController extends Controller
         $producto->estadoProducto = 1;
 
         $producto->save();
-        return redirect('/catalogo');
-    }
-
-    public function show($id)
-    {
-        $producto = Producto::find($id);
-        return view('producto.detalleproducto',compact('producto'));
-    }
-
-    public function edit($id)
-    {
-        $producto = Producto::find($id)->get();
-        return view('producto.editar')->with('producto',$producto);
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
+        return redirect('/listaproductos');
     }
 
     public function destroy($id)

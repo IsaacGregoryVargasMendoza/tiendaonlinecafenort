@@ -13,4 +13,10 @@ class Producto extends Model
     public function ventas(){
         return $this->belongsToMany(Venta::class,'idVenta');
     }
+
+    public function tipoproducto(){
+        return $this->belongsTo(TipoProducto::class,'idTipoProducto');
+    }
+
+
 }

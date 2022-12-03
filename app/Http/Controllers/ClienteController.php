@@ -9,8 +9,8 @@ class ClienteController extends Controller
 {
     public function index()
     {
-        $clientes = Cliente::where('estadoCliente',1)->get();
-        return view('cliente.index',compact('clientes'));
+        $clientes = Cliente::all();
+        return view('cliente.listar',compact('clientes'));
     }
 
     public function create()
@@ -22,15 +22,15 @@ class ClienteController extends Controller
     public function store(Request $request)
     {
         $cliente = new Cliente();
-        $cliente->dniCliente = $request->get('dni');
-        $cliente->nombreCliente = $request->get('nombre');
-        $cliente->direccionCliente = $request->get('direccion');
-        $cliente->celularCliente = $request->get('celular');
-        $cliente->correoCliente = $request->get('correo');
+        $cliente->dniCliente = $request->get('dniCliente');
+        $cliente->nombreCliente = $request->get('nombreCliente');
+        $cliente->direccionCliente = $request->get('direccionCliente');
+        $cliente->celularCliente = $request->get('celularCliente');
+        $cliente->correoCliente = $request->get('correoCliente');
         $cliente->estadoCliente = 1;
 
         $cliente->save();
-        return redirect('/cliente');
+        return redirect('/clientes');
     }
 
     public function show($id)
@@ -46,16 +46,16 @@ class ClienteController extends Controller
 
     public function update(Request $request, $id)
     {
-        $cliente = new Cliente::find($id);
-        $cliente->dniCliente = $request->get('dni');
-        $cliente->nombreCliente = $request->get('nombre');
-        $cliente->direccionCliente = $request->get('direccion');
-        $cliente->celularCliente = $request->get('celular');
-        $cliente->correoCliente = $request->get('correo');
+        $cliente = Cliente::find($id);
+        $cliente->dniCliente = $request->get('dniCliente');
+        $cliente->nombreCliente = $request->get('nombreCliente');
+        $cliente->direccionCliente = $request->get('direccionCliente');
+        $cliente->celularCliente = $request->get('celularCliente');
+        $cliente->correoCliente = $request->get('correoCliente');
         $cliente->estadoCliente = 1;
 
         $cliente->save();
-        return redirect('/cliente');
+        return redirect('/clientes');
     }
 
     public function destroy($id)

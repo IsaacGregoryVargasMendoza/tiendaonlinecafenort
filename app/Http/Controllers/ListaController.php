@@ -11,39 +11,24 @@ class ListaController extends Controller
     public function index()
     {
         $productos = Producto::where('estadoProducto',1)->get();
-        return view('producto.listar',compact('productos'));
+        $tipoproductos = TipoProducto::where('estadoTipoProducto',1)->get();
+        return view('producto.listar',compact('tipoproductos','productos'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        $producto = Producto::find($id);
+        return $producto;
     }
 
     public function edit($id)
@@ -65,10 +50,13 @@ class ListaController extends Controller
             $carga = $request->file('imagenproducto')->move($destinoPath,$nombreArchivo);
             $producto->imagenProducto = $destinoPath . $nombreArchivo;
         }else {
-            $producto->imagenProducto = "";
+            if(empty($producto->imagenProducto))
+                $producto->imagenProducto = "";
         }
-
+        
+        $producto->codigoProducto = $request->get('codigo');
         $producto->nombreProducto = $request->get('nombre');
+        $producto->descripcionProducto = $request->get('detalle');
         $producto->stockProducto = $request->get('stock');
         $producto->precioProducto = $request->get('precio');
         $producto->unidadMedida = $request->get('unidadmedida');
@@ -77,11 +65,14 @@ class ListaController extends Controller
         $producto->estadoProducto = 1;
 
         $producto->save();
-        return redirect('/listaproductos');
+        return redirect('listaproductos');
     }
 
     public function destroy($id)
     {
-        //
+        $producto = Producto::find($id);
+        $producto->estadoProducto = 0;
+        $producto->save();
+        return redirect('listaproductos');
     }
 }

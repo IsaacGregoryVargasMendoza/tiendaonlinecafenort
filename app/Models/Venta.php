@@ -9,6 +9,18 @@ class Venta extends Model
 {
     use HasFactory;
     public $timestamps =false;
+    protected $fillable=[
+        'fechaVenta',
+        'identificadorCliente',
+        'denominacionCliente',
+        'direccionCliente',
+        'serieVenta',
+        'numeroSerieVenta',
+        'totalVenta',
+        'estadoVenta',
+        'idComprobante',
+        'idCliente'
+    ];
 
     public function comprobante(){
         return $this->belongsTo(Comprobante::class,'idComprobante');

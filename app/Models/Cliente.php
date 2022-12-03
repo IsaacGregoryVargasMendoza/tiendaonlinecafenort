@@ -9,6 +9,15 @@ class Cliente extends Model
 {
     use HasFactory;
     public $timestamps =false;
+    protected $fillable=[
+        'dniCliente',
+        'nombreCliente',
+        'direccionCliente',
+        'celularCliente',
+        'correoCliente',
+        'estadoCliente',
+        'idUsuario'
+    ];
 
     public function ventas(){
         return $this->hasMany(Venta::class,'id');

@@ -9,6 +9,10 @@ class Comprobante extends Model
 {
     use HasFactory;
     public $timestamps =false;
+    protected $fillable=[
+        'nombreComprobante',
+        'estadoComprobante'
+    ];
 
     public function ventas(){
         return $this->hasMany(Venta::class,'id');

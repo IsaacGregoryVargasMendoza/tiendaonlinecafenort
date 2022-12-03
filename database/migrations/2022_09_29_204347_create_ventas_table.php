@@ -16,7 +16,7 @@ class CreateVentasTable extends Migration
             $table->string('direccionCliente',200);
             $table->string('serieVenta',50);
             $table->string('numeroSerieVenta',50);
-            $table->boolean('totalVenta',9,2);
+            $table->double('totalVenta',9,2);
             $table->boolean('estadoVenta');
             $table->foreignid('idComprobante')
                 ->nullable()

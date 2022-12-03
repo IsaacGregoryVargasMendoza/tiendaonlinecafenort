@@ -9,6 +9,10 @@ class TipoProducto extends Model
 {
     use HasFactory;
     public $timestamps =false;
+    protected $fillable=[
+        'descripcionTipoProducto',
+        'estadoTipoProducto'
+    ];
 
     public function productos(){
         return $this->hasMany(Producto::class,'id');

@@ -11,7 +11,7 @@ class CreateTipoProductosTable extends Migration
         Schema::create('tipo_productos', function (Blueprint $table) {
             $table->id();
             $table->string('descripcionTipoProducto',100);
-            $table->boolean('estadoTipoProducto');
+            $table->boolean('estadoTipoProducto')->nullable()->default(1);
         });
     }
 

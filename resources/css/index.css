@@ -1,0 +1,201 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+
+* {
+    font-family: Roboto, sans-serif;
+    box-sizing: border-box;
+}
+
+html{
+    overflow-x: hidden;
+}
+
+.navbar {
+    box-shadow: 2px 2px 5px #000;
+    opacity: .9;
+}
+
+.main-header {
+    position: relative;
+    background: url(../imagenes/programacion.jpeg);
+    background-size: cover;
+    min-height: 500px;
+}
+
+.background-overlay{
+    position: absolute;
+    background: rgba(0, 0, 0,0.7);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.form-control, .btn{
+    border-radius: 0;
+}
+
+.accordion-button{
+    text-align: center;
+}
+
+.team{
+    background: rgba(0, 0, 0,0.7);
+}
+
+#equipo img{
+    object-fit: cover;
+    width: 100%;
+    height: 340px;
+    max-height: 340px;
+}
+
+/* .img-fluid .img-thumbnail{
+    height: 100px;
+    
+} */
+
+.carousel-inner img {
+    object-fit: fill;
+    align-items: center;
+    margin: 10px;
+    width: 350px;
+    height: 250px;
+    max-height: 460px;
+}
+
+/* .carousel-inner-2 img {
+    object-fit: contain;
+    align-items: center;
+    margin: 10px;
+    width: 100%;
+    height: 250px;
+    max-height: 460px;
+    background: yellow;
+} */
+
+.contenedor-carrusel{
+    margin: 30px;
+    padding: 5px;
+}
+
+.contenedor-carrusel-2{
+    margin: 30px;
+    padding: 5px;
+    display: none;
+}
+
+.carousel-inner{
+    align-items: center;
+    margin: 0px;
+    padding: 5px;
+    /* height: 250px; */
+    /* background: yellow; */
+}
+
+@media screen and (max-width: 768px) {
+    .contenedor-carrusel{
+        display: none;
+    }
+
+    .contenedor-carrusel-2{
+        display: inline-block;
+    }
+
+    .carousel-inner-2 img {
+        object-fit: contain;
+        align-items: center;
+        margin: 10px;
+        width: 100%;
+        height: 250px;
+        max-height: 460px;
+        /* background: yellow; */
+    }
+    /* Estilos para pantallas pequeñas */
+
+    #caracteristicas .caracteristica{
+        margin-top: 10px;
+    }
+}
+
+/* .team {
+    background: rgba(0, 0, 0, 0.7);
+} */
+
+/* -- Footer -- */
+
+footer {
+    background-color: #0b4392;
+    padding: 25px 50px;
+    color: white;
+}
+
+.footer-body {
+    display: grid;
+    grid-gap: 10px;
+    /*grid-auto-rows: minmax(100px, auto);*/
+
+}
+
+footer .list-unstyled {
+    padding-left: 0;
+    list-style: none
+}
+
+/* SM (landscape phones) */
+@media (min-width: 576px) {
+    .footer-body {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+/* MD (tablets) */
+@media (min-width: 768px) {
+    .footer-body {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* LG (desktops) */
+@media (min-width: 992px) {
+    .footer-body {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* XL (large desktops) */
+@media (min-width: 1200px) {
+    .footer-body {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* XXL (larger desktops) */
+@media (min-width: 1400px) {
+    .footer-body {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* -- Footer -- */
+
+
+/* -- SCROLLBAR -- */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* -- SCROLLBAR -- */

@@ -38,7 +38,7 @@
                 </div>
 
                 <div class="my-3">
-                    <span>No tienes cuenta? <a href="{{ route('register') }}">Registrate</a></span><br>
+                    <!-- <span>No tienes cuenta? <a href="{{ route('register') }}">Registrate</a></span><br> -->
                     <span>
                         @if (Route::has('password.request'))
                             <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">

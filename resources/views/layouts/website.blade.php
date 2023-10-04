@@ -59,7 +59,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="w-100" src="{{ asset('website/img/carousel-2.jpg') }}" alt="Image">
+                    <img class="w-100" src="{{ asset('website/img/carousel/camara.jpeg') }}" alt="Image">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
                             <h1 class="display-1 text-white mb-md-4 animated zoomIn">Venta e Instalación de Camaras de
@@ -70,7 +70,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="w-100" src="{{ asset('website/img/carousel-2.jpg') }}" alt="Image">
+                    <img class="w-100" src="{{ asset('website/img/carousel/computadora.jpeg') }}" alt="Image">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
                             <h1 class="display-1 text-white mb-md-4 animated zoomIn">Venta y Mantenimiento de Equipos de

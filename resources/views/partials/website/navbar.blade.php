@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0">
                 <a href="{{ route('website.index') }}" class="nav-item nav-link {{ isActive('website.index') }}">Home</a>
-                <a href="https://tienda.devesoft.tech" target="_blank" class="nav-item nav-link">Tienda</a>
+                <!-- <a href="https://tienda.devesoft.tech" target="_blank" class="nav-item nav-link">Tienda</a> -->
                 <a href="{{ route('website.software') }}" class="nav-item nav-link {{ isActive('website.software') }}">Software</a>
             </div>
             <a target="_blank" href="{{ asset('BROCHURE_DEVESOFT.pdf') }}" class="btn btn-primary py-2 px-4 ms-3">BROCHURE</a>

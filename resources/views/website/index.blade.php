@@ -408,27 +408,40 @@
             </div>
             <div class="col-lg-5">
                 <div class="bg-primary rounded h-100 d-flex align-items-center p-5 wow zoomIn" data-wow-delay="0.9s">
-                    <form>
+                    <form action="{{ route('solicitud-web.registrar') }}" method="POST">
+                        @csrf
                         <div class="row g-3">
                             <div class="col-xl-12">
-                                <input type="text" class="form-control bg-light border-0" placeholder="Tu Nombre" style="height: 55px;">
+                                <input type="text" class="form-control bg-light border-0" placeholder="Tu Nombre" name="nombre" value="{{ old('nombre') }}" required maxlength="255" style="height: 55px;">
+                                @if ($errors->has('nombre'))
+                                <span class="text-danger">{{ $errors->first('nombre') }}</span>
+                                @endif
                             </div>
                             <div class="col-12">
-                                <input type="email" class="form-control bg-light border-0" placeholder="Tu Email" style="height: 55px;">
+                                <input type="email" class="form-control bg-light border-0" placeholder="Tu Email" name="email" value="{{ old('email') }}" required maxlength="255" style="height: 55px;">
+                                @if ($errors->has('email'))
+                                <span class="text-danger">{{ $errors->first('email') }}</span>
+                                @endif
                             </div>
                             <div class="col-12">
-                                <select class="form-select bg-light border-0" style="height: 55px;">
-                                    <option selected>Selecciona un Servicio</option>
-                                    <option value="1">Soporte Técnico</option>
-                                    <option value="2">Mantenimiento de Equipos</option>
-                                    <option value="3">Mantenimiento de Camaras de Seguridad</option>
-                                    <option value="3">Desarrollo Web / Apps</option>
-                                    <option value="3">Servicio de Outsourcing TI</option>
-                                    <option value="3">Otros</option>
+                                <select class="form-select bg-light border-0" name="servicio" required style="height: 55px;">
+                                    <option value="" selected disabled>Selecciona un Servicio</option>
+                                    <option value="1" {{ old('servicio') == '1' ? 'selected' : '' }}>Soporte Técnico</option>
+                                    <option value="2" {{ old('servicio') == '2' ? 'selected' : '' }}>Mantenimiento de Equipos</option>
+                                    <option value="3" {{ old('servicio') == '3' ? 'selected' : '' }}>Mantenimiento de Camaras de Seguridad</option>
+                                    <option value="4" {{ old('servicio') == '4' ? 'selected' : '' }}>Desarrollo Web / Apps</option>
+                                    <option value="5" {{ old('servicio') == '5' ? 'selected' : '' }}>Servicio de Outsourcing TI</option>
+                                    <option value="6" {{ old('servicio') == '6' ? 'selected' : '' }}>Otros</option>
                                 </select>
+                                @if ($errors->has('servicio'))
+                                <span class="text-danger">{{ $errors->first('servicio') }}</span>
+                                @endif
                             </div>
                             <div class="col-12">
-                                <textarea class="form-control bg-light border-0" rows="3" placeholder="Mensaje"></textarea>
+                                <textarea class="form-control bg-light border-0" rows="3" placeholder="Mensaje" name="mensaje" required maxlength="1000">{{ old('mensaje') }}</textarea>
+                                @if ($errors->has('mensaje'))
+                                <span class="text-danger">{{ $errors->first('mensaje') }}</span>
+                                @endif
                             </div>
                             <div class="col-12">
                                 <button class="btn btn-dark w-100 py-3" type="submit">Solicitar Cotización</button>

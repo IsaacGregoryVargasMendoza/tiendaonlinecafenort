@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VentaController;
 use App\Http\Controllers\ProductoController;
-
+use App\Http\Controllers\SolicitudWebController;
 
 /**
  * Clientes
@@ -12,6 +12,8 @@ use App\Http\Controllers\ProductoController;
 Route::get('/', function () {
     return view('website.index');
 })->name('website.index');
+
+Route::post('/registrar-solicitud-cotizacion', [SolicitudWebController::class, 'registrarSolicitud'])->name('solicitud-web.registrar');
 
 /**
  * Catalogo de software
